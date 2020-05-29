@@ -9,7 +9,7 @@ setrecursionlimit(10**6)
 def array_split(array):
     array_len=len(array)
     res=[];ans=[]
-    s=0 # 0:傾き不明 1:単調非減少 2:単調非増加
+    s=0 # 0:傾き不明 1:広義単調増加 2:広義単調減少
     roop=0
     while roop!=array_len:
         if ans==[]:
@@ -44,6 +44,3 @@ def array_split(array):
                 ans=[]
     res.append(ans)
     return res
-n=int(input())
-a=list(map(int,input().split()))
-print(array_split(a))
