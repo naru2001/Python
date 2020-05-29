@@ -2,10 +2,11 @@ import heapq
 
 INF=2<<28
 
+#G(cost,vertex)
 def dijkstra(G,start,n):#グラフ,初期頂点,頂点数
 
     dist=[INF]*n;dist[start]=0
-    used=[False]*n;used[0]=True
+    used=[False]*n;used[start]=True
     q=[]
 
     for v in G[start]:
