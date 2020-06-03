@@ -1,8 +1,5 @@
 import sys
-from sys import stdin,setrecursionlimit
 sys.setrecursionlimit(10**6)
-input=stdin.readline
-#import pysnooper
 
 class Weighted_Union_find:
     
@@ -12,7 +9,6 @@ class Weighted_Union_find:
         self.rank=[0]*(n+1)
         self.weight=[0]*(n+1)
 
-    #@pysnooper.snoop()
     def find_root(self,x):# 頂点xのroot(根)頂点を見つける
         if self.root[x]==x:
             return x
@@ -21,7 +17,7 @@ class Weighted_Union_find:
             self.weight[x]+=self.weight[self.root[x]]
             self.root[x]=y
             return y
-    #@pysnooper.snoop()
+
     def unite(self,x,y,w):#頂点xと頂点yを繋ぐ辺を追加
         rx=self.find_root(x)
         ry=self.find_root(y)
@@ -45,18 +41,3 @@ class Weighted_Union_find:
     def diff(self,x,y):#頂点xから頂点yへのコスト
         return self.weight[x]-self.weight[y]
 
-#@pysnooper.snoop()
-def main():
-    n,q=map(int,input().split())
-    gragh=Weighted_Union_find(n+1)
-    for _ in range(q):
-        query=tuple(map(int,input().split()))
-        if not query[0]:
-            gragh.unite(query[1],query[2],query[3])
-        else:
-            if gragh.same(query[1],query[2]):
-                print(gragh.diff(query[1],query[2]))
-            else:
-                print("?")
-    #print(1111111111111111)
-main()
