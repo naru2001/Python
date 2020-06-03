@@ -1,5 +1,4 @@
 import heapq
-
 INF=2<<28
 
 #G(cost,vertex)
