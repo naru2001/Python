@@ -1,12 +1,7 @@
-import os,re
 from collections import Counter,deque
-from operator import itemgetter
-from itertools import accumulate,combinations,groupby
 from sys import stdin,setrecursionlimit
-from copy import deepcopy
-setrecursionlimit(10**6)
 
-def array_split(array):
+def array_split(array): #なんか
     array_len=len(array)
     res=[];ans=[]
     s=0 # 0:傾き不明 1:広義単調増加 2:広義単調減少
