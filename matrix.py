@@ -1,11 +1,11 @@
 
-def unit_matrix(n):
+def unit_matrix(n):#単位行列
     return [[0]*i+[1]+[0]*(n-i-1) for i in range(n)]
 
-def zero_matrix(n,m):
+def zero_matrix(n,m):#ゼロ行列
     return [[0]*m for _ in range(n)]
 
-def LUdecomposition(matA):
+def LUdecomposition(matA):#LU分解(O(n^2))
     n=len(matA)
     L=zero_matrix(n,n)
     U=unit_matrix(n)
@@ -23,7 +23,7 @@ def LUdecomposition(matA):
             U[i][j]=u/L[i][i]
     return L,U
 
-def matrix_calc(matA,matB,op):
+def matrix_calc(matA,matB,op):#行列の単純な演算 (O(nm))
     n,m=len(matA),len(matA[0])
     if len(matA)!=len(matB) or len(matA[0])!=len(matB[0]): 
         return TypeError()
@@ -32,7 +32,7 @@ def matrix_calc(matA,matB,op):
             matA[i][j]=eval(str(matA[i][j])+op+str(matB[i][j]))
     return matA
 
-def matrix_dot(matA,matB):
+def matrix_dot(matA,matB):#行列積 (O(n^3))
     na,ma=len(matA),len(matA[0])
     nb,mb=len(matB),len(matB[0])
     if (ma!=nb): return ValueError()
@@ -43,14 +43,14 @@ def matrix_dot(matA,matB):
                 res[i][j]+=matA[i][k]*matB[k][j]
     return res
 
-def matrix_det(matA):
+def matrix_det(matA):#行列式 (O(n))
     if len(matA)!=len(matA[0]): return ValueError
     L,U=LUdecomposition(matA)
     res=1
     for i in range(len(matA)): res*=L[i][i]
     return res
 
-def inverse_matrix(matA):
+def inverse_matrix(matA):#逆行列 (O(n))
     detL,detU=LUdecomposition(matA)
     n=len(matA)
     for i in range(n):
@@ -58,7 +58,7 @@ def inverse_matrix(matA):
         detU[i][i]=1/detU[i][i]
     return matrix_dot(detL,detU)
 
-def mat_pow(mat,x):
+def mat_pow(mat,x):#行列累乗 (O(n^3logk))
     res=unit_matrix(x)
     tmp=x
     while tmp>0:
