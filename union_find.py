@@ -31,8 +31,8 @@ class union_find():
             if self.rank[x]==self.rank[y]:
                 self.rank[y]+=1
 
-    def same(self,x,y):
+    def same(self,x,y):#xとyが同じ集合にあるか
         return self.find_root(x)==self.find_root(y)
 
-    def cnt(self,x):
+    def cnt(self,x):# xを含む集合の大きさ
         return -self.root[self.find_root(x)]
