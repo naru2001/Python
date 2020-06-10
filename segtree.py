@@ -2,10 +2,9 @@ import sys
 
 sys.setrecursionlimit(10**6)
 
-INT_MAX=2**31-1
+INT_MAX=2<<32
 MAX_N=10**5
 array=[INT_MAX]*(MAX_N*4)
-n,q=map(int,input().split())
 
 def update(i,x):
     i+=n-1
