@@ -1,5 +1,8 @@
-inf=10**10
-def merge(a,left,cen,right):
+import sys
+sys.setrecursionlimit(10**5)
+
+inf=2<<30
+def merge(a,left,cen,right):#統治
     n1=cen-left
     n2=right-cen
     L=[a[left+i] for i in range(n1)]+[inf]
@@ -14,15 +17,10 @@ def merge(a,left,cen,right):
             j+=1
     return a
 
-def sorting(a,left,right):
+def sorting(a,left,right):#分割
     if left+1<right:
         m=(left+right)//2
         sorting(a,left,m)
         sorting(a,m,right)
         merge(a,left,m,right)
     return a
-
-n=int(input())
-a=list(map(int,input().split()))
-ans=sorting(a,0,n)
-print(*ans)
