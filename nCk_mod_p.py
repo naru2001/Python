@@ -1,4 +1,5 @@
 class nCk:
+    
     def __init__(self,n,m):
         self.fact=[False]*n
         self.finv=[False]*n
