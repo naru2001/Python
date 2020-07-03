@@ -1,4 +1,4 @@
-def Ism(x,n,p): #x^n mod p
+def Ism(x,n,p=2<<32): #x^n mod p
     ret=1
     while n>0:
         if n&1:
