@@ -1,4 +1,4 @@
-def main(n,a):
+def Bs(n,a):
 
     cnt=0
     for i in range(n-1):
@@ -13,9 +13,4 @@ def main(n,a):
         if ch:
             a[i],a[id]=a[id],a[i]
             cnt+=1
-    print(*a)
-    print(cnt)
-
-n=int(input())
-a=list(map(int,input().split()))
-main(n,a)
+    return a
