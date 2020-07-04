@@ -1,6 +1,6 @@
 from collections import deque
-q=deque([])
-while True:
+q=deque()
+while 1:
     try:
         s=input()
     except:
