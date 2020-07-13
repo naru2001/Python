@@ -1,5 +1,5 @@
 import heapq
-INF=2<<28
+INF=1e100
 
 #G(cost,vertex)
 def dijkstra(G,start,n):#グラフ,初期頂点,頂点数
