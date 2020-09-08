@@ -15,3 +15,6 @@ class Binary_Indexed_Tree:
         while self.size>=i:
             self.graph[i]+=x
             i+=i&-i
+            
+    def ret_sum(self,l,r):
+        return self.partially_sum(r)-self.partially_sum(l+1)
